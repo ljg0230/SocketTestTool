@@ -1,0 +1,32 @@
+.layout {
+    background-color: rgba(252, 175, 88, 0.918);
+    margin-top: 0.2rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    text-align: center;
+    width: 512px;
+}
+
+.num {
+    font-weight: bold;
+    padding: 10px;
+}
+
+.dataA {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dataB {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dataC {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dataD {
+    padding-left: 30px;
+    padding-right: 30px;
+}

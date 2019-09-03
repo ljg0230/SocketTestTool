@@ -10,3 +10,4 @@ in production .. (Actually, it's for practice. by LJG)
 - express
 - socket.io
 - socket.io-client
+- immer

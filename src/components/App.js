@@ -1,39 +1,27 @@
-import React, { Component } from 'react';
-import './App.css'
-import { subscribeToTimer } from 'api';
-import Item from './item';
+import React, { Component } from "react";
+import PageTemplate from "components/PageTemplate/PageTemplate";
+import PropTypes from "prop-types";
+import DataList from "components/DataList";
+import Form from "components/Form";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      timestamp: "no timestamp yet",
-      input: '',
-      itemDo: [
-        {}
-      ]
-    };
-
-    subscribeToTimer((err, timestamp) =>
-      this.setState({
-        timestamp
-      })
-    );
-  }
-  
   render() {
-
     return (
-      <div className="App">
-        <h1 className="App-intro">
-          Web Socket Test.. {this.state.timestamp}
-        </h1>
-        <Item></Item>
-      </div>
+      <PageTemplate
+        form={
+          <Form onCreate={this.props.handleCreate} value={this.props.value} />
+        }
+      >
+        <DataList datalist={this.props.datalist} />
+      </PageTemplate>
     );
   }
 }
 
-export default App;
+App.propTypes = {
+  datalist: PropTypes.arrayOf(PropTypes.object),
+  handleCreate: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired
+};
 
+export default App;
