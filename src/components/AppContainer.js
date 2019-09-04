@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./AppContainer.css";
 import App from "components/App";
 import { subscribeToTimer } from "api";
-import produce from "immer";
 
 class AppContainer extends Component {
   constructor(props) {
@@ -12,8 +11,6 @@ class AppContainer extends Component {
       input: "",
       dataLayout: [
         { id: 0, dataA: "aa", dataB: "bb", dataC: "cc", dataD: "dd" },
-        { id: 1, dataA: "aa", dataB: "bb", dataC: "cc", dataD: "dd" },
-        { id: 2, dataA: "aa", dataB: "bb", dataC: "cc", dataD: "dd" }
       ]
     };
 
@@ -24,19 +21,41 @@ class AppContainer extends Component {
     );
   }
 
-  handleCreate = data => {
-    const { input, dataLayout } = this.state;
+  handleChange = e => {
     this.setState({
-      input: "",
-      dataLayout: dataLayout.concat({
-        id: this.id++,
-        ...data
-      })
+      input: e.target.value
     });
   };
 
+  handleCreate = () => {
+    console.log(this.state);
+  };
+
+  componentDidMount() {
+/*     this.setState({
+      dataLayout: Array.from({ length: 100 }, (_, index) => ({
+        id: index + 1,
+        dataA: "aa",
+        dataB: "bb",
+        dataC: "cc",
+        dataD: "dd"
+      }))
+    }); */
+    const {dataLayout} = this.state;
+    for (let id=1; id <=100; ++id){
+      dataLayout.push({
+        id,
+        dataA: "aa",
+        dataB: "bb",
+        dataC: "cc",
+        dataD: "dd"
+      });
+    }
+    this.setState({
+      dataLayout
+    })
+  }
   render() {
-      console.log(this.state);
     return (
       <div>
         <h1 className="App-intro">Web Socket Test.. {this.state.timestamp}</h1>
@@ -44,6 +63,7 @@ class AppContainer extends Component {
           value={this.state.input}
           datalist={this.state.dataLayout}
           onCreate={this.handleCreate}
+          onChange={this.handleChange}
         />
       </div>
     );
