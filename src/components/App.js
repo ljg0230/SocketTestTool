@@ -9,7 +9,12 @@ class App extends Component {
     return (
       <PageTemplate
         form={
-          <Form onCreate={this.props.handleCreate} onChange={this.props.onChange} value={this.props.value} />
+          <Form
+            onCreate={this.props.onCreate}
+            onKeyPress={this.props.onKeyPress}
+            onChange={this.props.onChange}
+            value={this.props.value}
+          />
         }
       >
         <DataList datalist={this.props.datalist} />
@@ -20,9 +25,10 @@ class App extends Component {
 
 App.propTypes = {
   datalist: PropTypes.arrayOf(PropTypes.object),
-  handleCreate: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired
+  onCreate: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onKeyPress: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default App;

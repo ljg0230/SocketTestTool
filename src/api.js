@@ -6,4 +6,8 @@ function subscribeToTimer(cb) {
   socket.emit("subscribeToTimer", 100);
 }
 
-export { subscribeToTimer };
+function subscribeToVehicle(cb) {
+  
+}
+
+export { subscribeToTimer, subscribeToVehicle };

@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import "./AppContainer.css";
 import App from "components/App";
-import { subscribeToTimer } from "api";
+import socketIOClient from "socket.io-client";
+import { subscribeToTimer, subscribeToVehicle } from "api";
 
 class AppContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      endpoint: "http://localhost:4001",
       timestamp: "no timestamp yet",
       input: "",
       dataLayout: [
-        { id: 0, dataA: "aa", dataB: "bb", dataC: "cc", dataD: "dd" },
+        { id: 0, dataA: "aa", dataB: "bb", dataC: "cc", dataD: "dd" }
       ]
     };
 
@@ -21,40 +23,34 @@ class AppContainer extends Component {
     );
   }
 
+  handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      this.handleCreate();
+    }
+  };
+
   handleChange = e => {
     this.setState({
       input: e.target.value
     });
   };
 
-  handleCreate = () => {
-    console.log(this.state);
-  };
-
-  componentDidMount() {
-/*     this.setState({
-      dataLayout: Array.from({ length: 100 }, (_, index) => ({
+  handleCreate = e => {
+    const { input } = this.state;
+    this.setState({
+      input: "",
+      dataLayout: Array.from({ length: input }, (_, index) => ({
         id: index + 1,
         dataA: "aa",
         dataB: "bb",
         dataC: "cc",
         dataD: "dd"
       }))
-    }); */
-    const {dataLayout} = this.state;
-    for (let id=1; id <=100; ++id){
-      dataLayout.push({
-        id,
-        dataA: "aa",
-        dataB: "bb",
-        dataC: "cc",
-        dataD: "dd"
-      });
-    }
-    this.setState({
-      dataLayout
-    })
-  }
+    });
+  };
+
+  componentDidMount
+
   render() {
     return (
       <div>
@@ -64,6 +60,7 @@ class AppContainer extends Component {
           datalist={this.state.dataLayout}
           onCreate={this.handleCreate}
           onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
         />
       </div>
     );

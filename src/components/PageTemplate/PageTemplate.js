@@ -1,7 +1,7 @@
 import React from "react";
 import "./PageTemplate.css";
 
-const PageTemplate = ({ form, children, onCreate }) => {
+const PageTemplate = ({ form, children }) => {
   return (
     <main className="item-template">
       <div className="title">
