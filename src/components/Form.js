@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import React, { Component } from 'react';
 
 class Form extends Component {
+  /* shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.no !== this.props.no || nextProps.done !== this.props.done;
+  } */
   render() {
     return (
       <div className="form">

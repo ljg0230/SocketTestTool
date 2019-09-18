@@ -1,6 +1,7 @@
 .layout {
     background-color: rgba(252, 175, 88, 0.918);
     margin-top: 0.2rem;
+    margin-left: 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     text-align: center;
     width: 512px;
@@ -27,6 +28,41 @@
 }
 
 .dataD {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dataE {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dataF {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dataG {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dataH {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dataI {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dataJ {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dataK {
     padding-left: 30px;
     padding-right: 30px;
 }

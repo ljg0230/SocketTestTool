@@ -5,7 +5,9 @@ import DataList from "components/DataList";
 import Form from "components/Form";
 
 class App extends Component {
+
   render() {
+    //console.log("App이 렌더링 되고있어요..");
     return (
       <PageTemplate
         form={

@@ -4,8 +4,9 @@ import Data from "components/Data";
 
 class DataList extends Component {
   render() {
+    //console.log("DataList가 렌더링 되고있어요..");
     let datas = this.props.datalist.map(data => {
-      return <Data key={data.id} num={(data.id)} {...data} />;
+      return <Data key={data.id} num={data.id} {...data} />;
     });
     return <div>{datas}</div>;
   }
